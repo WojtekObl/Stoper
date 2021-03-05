@@ -7,7 +7,7 @@ const stopwatch = document.querySelector(".stopwatch");
 const time = document.querySelector(".time");
 const timeList = document.querySelector(".time-list");
 
-const infoBtn  = document.querySelector(".info");
+const infoBtn = document.querySelector(".info");
 const modalShadow = document.querySelector(".modal-shadow");
 const closeModalBtn = document.querySelector(".close");
 
@@ -20,7 +20,7 @@ let timesArr = [];
 const handleStart = () => {
     clearInterval(countTime);
 
-    countTime = setInterval(()=>{
+    countTime = setInterval(() => {
         // console.log(seconds);
         if (seconds < 9) {
             seconds++;
@@ -34,19 +34,19 @@ const handleStart = () => {
             stopwatch.textContent = `${minutes}:00`
         }
 
-        
-        
+
+
     }, 1000);
 }
 const handleStop = () => {
 
-    if (stopwatch.textContent !=="0:00") {
-        time.style.visibility ="visible";
+    if (stopwatch.textContent !== "0:00") {
+        time.style.visibility = "visible";
         time.textContent = `Ostatni czas: ${stopwatch.textContent}`;
-        
+
         timesArr.push(stopwatch.textContent)
     }
-    
+
     clearAll();
 
 }
@@ -57,7 +57,7 @@ const handlePause = () => {
 
 const handleReset = () => {
     clearAll();
-    time.style.visibility ="hidden";
+    time.style.visibility = "hidden";
     timesArr = [];
 }
 
@@ -73,7 +73,7 @@ const showHistory = () => {
     timeList.textContent = "";
     let num = 1;
 
-    timesArr.forEach(time=>{
+    timesArr.forEach(time => {
         const newTime = document.createElement("li");
         newTime.innerHTML = `Pomiar nr ${num}: <span>${time}</span>`;
 
@@ -101,15 +101,4 @@ historyBtn.addEventListener("click", showHistory)
 
 infoBtn.addEventListener("click", showModal)
 closeModalBtn.addEventListener("click", showModal)
-window.addEventListener("click", e => e.target === modalShadow  ? showModal() : false)
-
-
-console.log(object)
-
-
-import moduleName from 'module'
-
-
-(params) => {
-    
-}
+window.addEventListener("click", e => e.target === modalShadow ? showModal() : false)
